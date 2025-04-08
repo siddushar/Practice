@@ -1,17 +1,22 @@
 def insertion_sort(arr)
+  # Start from the second element (index 1)
   for i in 1...(arr.length) do
-    key = i
-    last = i -  1
+    key = arr[i]  # The element to be inserted
+    last = i - 1  # The index of the last element in the sorted portion
 
-    while(last >= 0 && last < arr[key])
-      arr[last+1] = arr[last]
-      last = last - 1
+    # Move elements of arr[0..i-1], that are greater than the key,
+    # to one position ahead of their current position
+    while last >= 0 && arr[last] > key
+      arr[last + 1] = arr[last]
+      last -= 1
     end
 
-    arr[last+1]=key
+    # Place the key after the last shifted element
+    arr[last + 1] = key
   end
   arr
 end
+
 
 # Insertion Sort is a simple comparison-based sorting algorithm that builds the sorted array one element at a time. Here's how it works:
 
